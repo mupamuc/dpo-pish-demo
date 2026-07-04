@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Подбор программ по компетенциям — ДПО ПИШ СПбПУ</title>
+  <meta name="description" content="Какие компетенции повышает какая программа ДПО ПИШ СПбПУ. Подбор программ для HR и руководителей.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <span class="logo">ПИШ</span>
+        <span>Центр ДПО<small>ПИШ СПбПУ «Цифровой инжиниринг»</small></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html#how">Как это работает</a>
+        <a href="index.html#catalog">Программы</a>
+        <a href="index.html#assessment">Оценка компетенций</a>
+        <a href="competencies.html" class="active">Подбор программ</a>
+        <a href="index.html#contacts">Контакты</a>
+      </nav>
+      <div class="header-cta">
+        <span class="header-phone">+7 (812) 775-05-30</span>
+        <button class="btn btn-primary btn-sm" onclick="openContacts('шапка: подбор программ')">Связаться с нами</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ── Page hero ── -->
+    <section class="pick-hero">
+      <div class="wrap">
+        <span class="eyebrow">Для HR и руководителей</span>
+        <h1>Какая программа повышает какую компетенцию</h1>
+        <p>Выберите роль сотрудника или отметьте компетенции, которые нужно развить, — получите ранжированную подборку программ каталога. Подбор работает на вашем устройстве, никакие данные не отправляются.</p>
+      </div>
+    </section>
+
+    <!-- ── Picker ── -->
+    <section class="picker">
+      <div class="wrap">
+        <div class="picker-grid">
+          <aside class="picker-panel">
+            <h3>1. Кого развиваем</h3>
+            <div class="role-list" id="roleList"></div>
+            <h3>2. Какие компетенции</h3>
+            <div class="comp-checks" id="compChecks"></div>
+            <button class="filter-reset" id="pickReset">Сбросить выбор</button>
+          </aside>
+
+          <div class="picker-result">
+            <div class="assess-hint">
+              <svg class="li" viewBox="0 0 24 24"><polygon points="12 2 21 7.5 21 16.5 12 22 3 16.5 3 7.5"/><circle cx="12" cy="12" r="1"/></svg>
+              <span><b>Не уверены в текущем уровне сотрудников?</b> Начните с <a href="index.html#assessment">оценки через симулятор</a> — телеметрия покажет слабые оси профиля, и подбор станет адресным. Тренажёрные программы отмечены в подборке.</span>
+            </div>
+            <div class="results-bar"><div class="count" id="pickCount"></div></div>
+            <div id="pickResults"><div class="ph">Выберите роль слева или отметьте компетенции — здесь появится подборка программ.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Matrix ── -->
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Полная карта</span>
+          <h2>Матрица «компетенции × программы»</h2>
+          <p>Все программы каталога и компетенции, которые они развивают. Точка — программа работает на компетенцию.</p>
+        </div>
+        <div class="matrix-wrap" id="matrixWrap"></div>
+      </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section class="contacts" id="contacts">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow" style="background:rgba(255,255,255,.14);color:#fff">Следующий шаг</span>
+          <h2 style="margin-top:.9rem">Соберём план развития под вашу команду</h2>
+          <p>Пришлите список ролей и задач — подберём программы, форматы и, при необходимости, проведём стартовую оценку через симулятор. Форм на сайте нет: напишите или позвоните.</p>
+          <div style="margin-top:1.2rem"><button class="btn btn-green" onclick="openContacts('план развития команды (HR)')">Связаться с нами</button></div>
+        </div>
+        <div class="c-block">
+          <div class="c-row"><span>Почта</span><a href="mailto:cdpo@spbstu.ru?subject=Подбор%20программ%20для%20сотрудников">cdpo@spbstu.ru</a></div>
+          <div class="c-row"><span>Телефон</span><a href="tel:+78127750530">+7 (812) 775-05-30</a></div>
+          <div class="c-row"><span>Срок ответа</span><span class="reply">1 рабочий день</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-back" id="modalBack" role="dialog" aria-modal="true" aria-label="Контакты">
+    <div class="modal" id="modalBody"></div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <script src="comp.js"></script>
+</body>
+</html>
