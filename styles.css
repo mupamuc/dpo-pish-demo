@@ -477,9 +477,85 @@ body.view-detail .detail { display:block; }
 .matrix tr:hover td, .matrix tr:hover th { background:var(--bg-tint); }
 .matrix .type-row th[colspan] { background:var(--bg); color:var(--muted); font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; }
 
+/* ── Кейсы ── */
+.cases { background:#fff; border-top:1px solid var(--line); }
+.case-filters { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.4rem; }
+.case-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+.case-card { border:1px solid var(--line); border-radius:var(--radius); padding:1.1rem 1.2rem;
+  background:#fff; box-shadow:var(--shadow-sm); display:flex; flex-direction:column;
+  transition:transform var(--dur) var(--ease), box-shadow var(--dur); }
+.case-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); }
+.case-card .cc-top { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:.55rem; }
+.case-card h3 { font-size:1rem; line-height:1.3; margin-bottom:.5rem; }
+.case-card .cc-tools { color:var(--muted); font-size:.8rem; margin-bottom:.8rem; }
+.case-card .cc-target { margin-top:auto; background:#f2fdf6; border:1px solid #cdeeda; border-radius:var(--radius-sm);
+  color:var(--green-700); font-weight:700; font-size:.84rem; padding:.5rem .7rem; }
+.case-card .cc-target small { display:block; font-weight:600; color:#66a984; font-size:.7rem; text-transform:uppercase; letter-spacing:.04em; }
+.b-loss { background:#fdeaea; color:#b23333; }
+.b-sector { background:var(--bg-tint); color:var(--blue); }
+.b-tpl { background:var(--bg); color:var(--muted); }
+.cases-note { margin-top:1.4rem; color:var(--muted); font-size:.85rem; }
+
+/* ── ИИ-наставник + траектория (в секции оценки) ── */
+.assess-extra { display:grid; grid-template-columns:1.05fr .95fr; gap:1.2rem; margin-top:1.2rem; }
+.mentor-card { background:#fff; border-radius:var(--radius); color:var(--ink); padding:1.3rem 1.4rem; box-shadow:var(--shadow-lg); }
+.mentor-card .m-head { display:flex; align-items:center; gap:.7rem; margin-bottom:.9rem; }
+.mentor-card .m-ava { width:38px; height:38px; border-radius:50%; background:linear-gradient(135deg,var(--blue),#5d5fd8);
+  color:#fff; display:grid; place-items:center; font-weight:800; font-size:.8rem; flex:none; }
+.mentor-card .m-who { font-weight:800; color:var(--navy); font-size:.95rem; }
+.mentor-card .m-sub { color:var(--muted); font-size:.78rem; }
+.mentor-card .m-block { border-left:3px solid var(--line-2); padding:.15rem 0 .15rem .85rem; margin-bottom:.8rem; }
+.mentor-card .m-block:last-child { margin-bottom:0; }
+.mentor-card .m-block .t { font-weight:700; color:var(--navy); font-size:.86rem; }
+.mentor-card .m-block p { margin:.2rem 0 0; color:var(--ink-2); font-size:.87rem; }
+.mentor-card .m-block.warn { border-left-color:#D64545; }
+.mentor-card .m-block.ok { border-left-color:var(--green); }
+.mentor-card .m-num { font-weight:800; color:#b23333; }
+.traj-card { display:flex; flex-direction:column; }
+.traj-card svg { width:100%; height:auto; }
+.traj-sum { margin-top:.6rem; font-size:.86rem; color:rgba(255,255,255,.75); }
+.traj-sum b { color:var(--green); }
+
+/* ── Отчёт для компании ── */
+.report { background:var(--bg); border-top:1px solid var(--line); }
+.report-grid { display:grid; grid-template-columns:1fr 1.1fr; gap:2.2rem; align-items:center; }
+.report-points { list-style:none; padding:0; margin:1.2rem 0 1.6rem; }
+.report-points li { display:flex; gap:.7rem; padding:.5rem 0; color:var(--ink-2); }
+.report-points li .li { color:var(--green-700); margin-top:.1rem; }
+.report-points li b { color:var(--navy); }
+.report-mock { background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+  box-shadow:var(--shadow-md); overflow:hidden; }
+.report-mock .rm-head { background:var(--navy); color:#fff; padding:.9rem 1.3rem; font-weight:700; font-size:.9rem;
+  display:flex; justify-content:space-between; align-items:center; }
+.report-mock .rm-head small { color:rgba(255,255,255,.55); font-weight:600; }
+.report-mock .rm-body { padding:1.2rem 1.3rem; display:grid; gap:1rem; }
+.rm-row { display:grid; grid-template-columns:150px 1fr; gap:1rem; align-items:center; }
+.rm-row .rl { font-size:.8rem; color:var(--muted); font-weight:600; }
+.rm-bar { display:flex; height:12px; border-radius:100px; overflow:hidden; }
+.rm-bar .ok { background:var(--green); } .rm-bar .mid { background:#f2b036; } .rm-bar .low { background:var(--line-2); }
+.rm-people { display:flex; flex-wrap:wrap; gap:.4rem; }
+.rm-chip { background:var(--bg-tint); color:var(--blue); font-size:.76rem; font-weight:700; border-radius:100px; padding:.3rem .65rem; }
+.rm-chip.lead { background:#e4f8ec; color:var(--green-700); }
+.rm-recs { font-size:.85rem; color:var(--ink-2); border:1px dashed var(--line-2); border-radius:var(--radius-sm); padding:.7rem .9rem; }
+.rm-recs b { color:var(--navy); }
+
+/* ── Удостоверение ── */
+.cert-strip { background:#fff; }
+.cert-grid { display:grid; grid-template-columns:1fr 1fr; gap:2.2rem; align-items:center; }
+.cert-img { border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow-md); overflow:hidden; }
+.cert-img img { display:block; width:100%; }
+.cert-note { color:var(--muted); font-size:.85rem; margin-top:.8rem; }
+
 @media (max-width:960px) {
   .assess-kpis { grid-template-columns:1fr 1fr; }
   .assess-grid { grid-template-columns:1fr; }
+  .assess-extra { grid-template-columns:1fr; }
   .picker-grid { grid-template-columns:1fr; }
   .picker-panel { position:static; }
+  .case-cards { grid-template-columns:1fr 1fr; }
+  .report-grid, .cert-grid { grid-template-columns:1fr; }
+}
+@media (max-width:640px) {
+  .case-cards { grid-template-columns:1fr; }
+  .rm-row { grid-template-columns:1fr; gap:.3rem; }
 }

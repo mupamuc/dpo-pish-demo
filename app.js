@@ -439,6 +439,57 @@ function renderAssessment() {
     </div>`).join('');
 }
 
+/* ── Кейсы (фильтр по отраслям) ── */
+let caseSector = 'all';
+function renderCases() {
+  const host = $('#caseCards');
+  if (!host) return;
+  const sectors = [...new Set(CASES.map((c) => c.sector))];
+  $('#caseFilters').innerHTML =
+    `<button class="chip" data-sector="all" aria-pressed="${caseSector === 'all'}">Все отрасли (${CASES.length})</button>` +
+    sectors.map((s) => `<button class="chip" data-sector="${esc(s)}" aria-pressed="${caseSector === s}">${esc(s)} (${CASES.filter((c) => c.sector === s).length})</button>`).join('');
+  $$('#caseFilters .chip').forEach((b) => b.addEventListener('click', () => { caseSector = b.dataset.sector; renderCases(); }));
+
+  const list = CASES.filter((c) => caseSector === 'all' || c.sector === caseSector);
+  host.innerHTML = list.map((c) => `
+    <article class="case-card">
+      <div class="cc-top">
+        <span class="badge b-sector">${esc(c.sector)}</span>
+        <span class="badge b-loss">${esc(c.loss)}</span>
+        ${c.ready ? '' : '<span class="badge b-tpl">в разработке</span>'}
+      </div>
+      <h3>${esc(c.title)}</h3>
+      <div class="cc-tools">${c.tools.map(esc).join(' · ')}</div>
+      ${c.target ? `<div class="cc-target"><small>Целевой эффект</small>${esc(c.target)}</div>` : ''}
+    </article>`).join('');
+}
+
+/* ── График «команда vs ИИ-оптимум» ── */
+function renderTrajectory() {
+  const host = $('#trajChart');
+  if (!host) return;
+  const W = 460, H = 210, P = { l: 44, r: 12, t: 12, b: 24 };
+  const wk = TRAJECTORY.weeks;
+  const xs = wk.map((w) => w[0]);
+  const maxY = Math.max(...wk.map((w) => Math.max(w[1], w[2])));
+  const x = (v) => P.l + ((v - xs[0]) / (xs[xs.length - 1] - xs[0])) * (W - P.l - P.r);
+  const y = (v) => H - P.b - (v / maxY) * (H - P.t - P.b);
+  const path = (idx) => wk.map((w, i) => `${i ? 'L' : 'M'}${x(w[0]).toFixed(1)},${y(w[idx]).toFixed(1)}`).join('');
+  const gridY = [0.25, 0.5, 0.75, 1].map((k) => {
+    const v = maxY * k, yy = y(v);
+    return `<line x1="${P.l}" y1="${yy}" x2="${W - P.r}" y2="${yy}" stroke="rgba(255,255,255,.1)"/>
+      <text x="${P.l - 6}" y="${yy + 3}" fill="rgba(255,255,255,.45)" font-size="9" text-anchor="end">${Math.round(v / 1000)}к</text>`;
+  }).join('');
+  host.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Прибыль команды против ИИ-оптимума по неделям">
+    ${gridY}
+    <path d="${path(2)}" fill="none" stroke="#3FCC71" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="${path(1)}" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-dasharray="5 4" stroke-linejoin="round"/>
+    <text x="${P.l}" y="${H - 6}" fill="rgba(255,255,255,.45)" font-size="9">недели ${xs[0]}–${xs[xs.length - 1]}</text>
+    <text x="${W - P.r}" y="${H - 6}" fill="rgba(255,255,255,.45)" font-size="9" text-anchor="end">— — команда · ── ИИ-оптимум</text>
+  </svg>`;
+  $('#trajSum').innerHTML = `Упущенная выгода команды за прохождение: <b>${TRAJECTORY.sumGain.toLocaleString('ru-RU')} у.е.</b> — её ИИ-диагност переводит в конкретные рекомендации.`;
+}
+
 /* ── Init ── */
 function init() {
   // модалка и клавиши — на всех страницах
@@ -448,6 +499,8 @@ function init() {
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeContacts(); });
   }
   renderAssessment();
+  renderCases();
+  renderTrajectory();
   if (!$('#cards')) return; // страница без каталога (например, подбор программ)
   // counts on tabs
   $('#tabCourse .cnt').textContent = COURSES.length;

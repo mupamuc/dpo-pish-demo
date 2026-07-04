@@ -18,6 +18,7 @@
       <nav class="nav">
         <a href="#how">Как это работает</a>
         <a href="#catalog" class="active">Программы</a>
+        <a href="#cases">Кейсы</a>
         <a href="#assessment">Оценка компетенций</a>
         <a href="competencies.html">Подбор программ</a>
         <a href="#contacts">Контакты</a>
@@ -193,6 +194,22 @@
       </div>
     </section>
 
+    <!-- ── Кейсы ── -->
+    <section class="cases" id="cases">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Кейсы из практики</span>
+          <h2>Учим на реальных производственных кейсах</h2>
+          <p>Сценарии тренажёров и корпоративных программ собраны с реальных линий и процессов (обезличено). Найдите свою отрасль — покажем, какие потери разбираем и на какой эффект нацеливаем.</p>
+        </div>
+        <div class="case-filters" id="caseFilters"></div>
+        <div class="case-cards" id="caseCards"></div>
+        <div class="cases-note">Кейсы со статусом «в разработке» доступны как шаблон — адаптируем под ваш процесс при корпоративном заказе.
+          <button class="btn btn-primary btn-sm" style="margin-left:.8rem" onclick="openContacts('кейс под нашу отрасль')">Обсудить кейс под вашу отрасль</button>
+        </div>
+      </div>
+    </section>
+
     <!-- ── Оценка через симуляторы ── -->
     <section class="assess" id="assessment">
       <div class="wrap">
@@ -238,10 +255,102 @@
           </div>
         </div>
 
+        <div class="assess-extra">
+          <div class="mentor-card">
+            <div class="m-head">
+              <div class="m-ava">ИИ</div>
+              <div>
+                <div class="m-who">ИИ-наставник · разбор периода 32</div>
+                <div class="m-sub">команда 203, симулятор «Бережливое производство» — реальный пример обратной связи</div>
+              </div>
+            </div>
+            <div class="m-block warn">
+              <div class="t">1. Главное узкое место</div>
+              <p>Простой из-за ожидания логиста — доля <span class="m-num">0,733</span> при норме 0,15. На эту причину приходится 350 831 из 478 849 единиц времени простоя: почти ¾ времени станки ждут подачу материалов.</p>
+            </div>
+            <div class="m-block">
+              <div class="t">2. Какой Lean-принцип нарушен</div>
+              <p>Потеря типа «Ожидание / транспортировка»: не выстроена балансировка внутренней логистики.</p>
+            </div>
+            <div class="m-block ok">
+              <div class="t">3. Что делать</div>
+              <p>Маршруты «молочника» (milk run): логист обходит участки по такту, материал приходит вовремя — простой падает кратно.</p>
+            </div>
+          </div>
+          <div class="assess-card traj-card">
+            <h4><svg class="li" viewBox="0 0 24 24"><path d="M3 17l5-6 4 3 6-8"/><path d="M3 21h18"/></svg>Команда против ИИ-оптимума</h4>
+            <p>Диагност пересчитывает каждую неделю прохождения: сколько заработала команда и сколько было возможно при оптимальных решениях. Разрыв — цена необученности.</p>
+            <div id="trajChart"></div>
+            <div class="traj-sum" id="trajSum"></div>
+          </div>
+        </div>
+
         <div class="assess-cta">
           <button class="btn btn-green" onclick="openContacts('оценка команды через симулятор')">Провести оценку команды</button>
           <a class="btn btn-ghost" href="competencies.html" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.35)">Подбор программ по компетенциям →</a>
           <span class="note">Данные — пилот на симуляторе «Бережливое производство» (обезличено).</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Отчёт для компании ── -->
+    <section class="report" id="report">
+      <div class="wrap">
+        <div class="report-grid">
+          <div>
+            <span class="eyebrow">Компаниям</span>
+            <h2 style="margin-top:.9rem">После обучения группы вы получаете отчёт, а не только удостоверения</h2>
+            <ul class="report-points">
+              <li><svg class="li" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b>Зачёт по каждому сотруднику</b> — кто освоил, кто в процессе, кто только ознакомился (по гейтам, не по посещаемости).</span></li>
+              <li><svg class="li" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b>Профили компетенций</b> — сильные и слабые оси каждого участника из телеметрии тренажёра.</span></li>
+              <li><svg class="li" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b>Готовность к изменениям</b> — кого ставить лидером проекта улучшений, кто сработает в команде.</span></li>
+              <li><svg class="li" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b>Рекомендации следующего шага</b> — какие программы закроют слабые оси группы.</span></li>
+            </ul>
+            <button class="btn btn-primary" onclick="openContacts('отчёт по итогам обучения группы')">Обсудить обучение группы</button>
+          </div>
+          <div class="report-mock" aria-label="Пример отчёта">
+            <div class="rm-head">Отчёт по когорте · 87 участников <small>пример, обезличено</small></div>
+            <div class="rm-body">
+              <div class="rm-row">
+                <div class="rl">Зачёт (200 чел. в пилоте)</div>
+                <div>
+                  <div class="rm-bar"><span class="ok" style="width:48.5%"></span><span class="mid" style="width:11%"></span><span class="low" style="width:40.5%"></span></div>
+                  <div style="font-size:.76rem;color:var(--muted);margin-top:.3rem">Освоил 97 · Осваивает 22 · Ознакомлен 81</div>
+                </div>
+              </div>
+              <div class="rm-row">
+                <div class="rl">Готовность к изменениям</div>
+                <div class="rm-people">
+                  <span class="rm-chip lead">Лидер · 5</span>
+                  <span class="rm-chip lead">Команда · 4</span>
+                  <span class="rm-chip">Носители идей · 156 совпадений</span>
+                </div>
+              </div>
+              <div class="rm-row">
+                <div class="rl">Средний профиль группы</div>
+                <div>
+                  <div class="rm-bar" style="height:10px"><span class="ok" style="width:58%"></span><span class="low" style="width:42%"></span></div>
+                  <div style="font-size:.76rem;color:var(--muted);margin-top:.3rem">Слабая ось когорты — «Перепроизводство» (42/100)</div>
+                </div>
+              </div>
+              <div class="rm-recs"><b>Рекомендация:</b> группе — модуль «Вытягивание / канбан»; двум участникам — трек лидера проекта улучшений.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Удостоверение ── -->
+    <section class="cert-strip" id="cert">
+      <div class="wrap">
+        <div class="cert-grid">
+          <div>
+            <span class="eyebrow">Итоговый документ</span>
+            <h2 style="margin-top:.9rem">Удостоверение о повышении квалификации</h2>
+            <p style="color:var(--ink-2)">Слушатели курсов повышения квалификации получают удостоверение установленного образца СПбПУ. У онлайн-курсов итоговый документ указан на карточке программы (удостоверение или сертификат).</p>
+            <p class="cert-note">Образец. Внешний вид документа может отличаться в зависимости от программы.</p>
+          </div>
+          <div class="cert-img"><img src="assets/udostoverenie.jpg" alt="Образец удостоверения о повышении квалификации СПбПУ" loading="lazy" width="1200" height="842"></div>
         </div>
       </div>
     </section>
