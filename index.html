@@ -5,7 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Дополнительное профессиональное образование — ПИШ СПбПУ «Цифровой инжиниринг»</title>
   <meta name="description" content="Каталог программ ДПО ПИШ СПбПУ: курсы повышения квалификации, президентская программа, симуляторы и тренажёры, онлайн-курсы.">
+  <!-- Демо-прототип: не индексировать. СНЯТЬ noindex при переносе на боевой домен. -->
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://mupamuc.github.io/dpo-pish-demo/">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta name="theme-color" content="#172B4D">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Дополнительное профессиональное образование — ПИШ СПбПУ «Цифровой инжиниринг»">
+  <meta property="og:description" content="27 программ ДПО: курсы повышения квалификации, симуляторы и тренажёры, онлайн-курсы. Цена, формат и срок — сразу на карточке.">
+  <meta property="og:url" content="https://mupamuc.github.io/dpo-pish-demo/">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Центр ДПО ПИШ СПбПУ «Цифровой инжиниринг»",
+    "url": "https://mupamuc.github.io/dpo-pish-demo/",
+    "email": "cdpo@spbstu.ru",
+    "telephone": "+7 (812) 775-05-30",
+    "parentOrganization": {
+      "@type": "CollegeOrUniversity",
+      "name": "Санкт-Петербургский политехнический университет Петра Великого",
+      "url": "https://www.spbstu.ru/"
+    },
+    "sameAs": ["https://pish.spbstu.ru/"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Сколько стоит обучение?", "acceptedAnswer": {"@type": "Answer", "text": "Стоимость указана на карточке каждой программы — отдельно для частного лица и для компании (группа от 8 человек). Часть онлайн-курсов бесплатна."}},
+      {"@type": "Question", "name": "Как записаться на программу?", "acceptedAnswer": {"@type": "Answer", "text": "На сайте нет формы записи. Нажмите «Связаться с нами» на нужной программе — откроются почта и телефон центра ДПО. Напишите или позвоните, и мы согласуем участие."}},
+      {"@type": "Question", "name": "Можно оплатить обучение от организации?", "acceptedAnswer": {"@type": "Answer", "text": "Да. У большинства программ есть пометка «Можно оплатить от организации», а также отдельная цена для компаний при группе от 8 человек."}},
+      {"@type": "Question", "name": "Чем онлайн-курс отличается от обычного?", "acceptedAnswer": {"@type": "Answer", "text": "Онлайн-курс проходят самостоятельно, он стартует сразу — без ожидания набора группы. Обычные курсы идут потоками."}},
+      {"@type": "Question", "name": "Что такое президентская программа?", "acceptedAnswer": {"@type": "Answer", "text": "Программа подготовки управленческих кадров: 550 часов, конкурсный отбор, ежегодный набор. Государство компенсирует 2/3 стоимости, стажировка включена."}}
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- ── Header ── -->
@@ -19,8 +59,10 @@
         <a href="#how">Как это работает</a>
         <a href="#catalog" class="active">Программы</a>
         <a href="#cases">Кейсы</a>
+        <a href="#report">Компаниям</a>
         <a href="#assessment">Оценка компетенций</a>
         <a href="competencies.html">Подбор программ</a>
+        <a href="proforientation.html">Школьникам</a>
         <a href="#contacts">Контакты</a>
       </nav>
       <div class="header-cta">
@@ -29,6 +71,15 @@
       </div>
     </div>
   </header>
+
+  <!-- ── Partner logos ── -->
+  <div class="partner-strip" aria-label="Организаторы">
+    <div class="wrap">
+      <img class="lg-spbstu" src="assets/logo-spbstu.svg" alt="СПбПУ — Санкт-Петербургский политехнический университет Петра Великого">
+      <img class="lg-pish" src="assets/logo-pish-dark.svg" alt="ПИШ СПбПУ «Цифровой инжиниринг»">
+      <img class="lg-cml" src="assets/logo-cmlbench-edu.svg" alt="CML-Bench EDU">
+    </div>
+  </div>
 
   <main id="top">
     <!-- ── Hero ── -->
@@ -39,7 +90,8 @@
           <h1>Инженерные программы <span class="accent">для специалистов и предприятий</span></h1>
           <p class="lead">Повышение квалификации, тренажёры и онлайн-курсы от Передовой инженерной школы СПбПУ. Цена, формат и срок — сразу на карточке, без писем ради базовых вопросов.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#catalog">Смотреть программы</a>
+            <a class="btn btn-primary" href="#catalog">Учусь сам — к программам</a>
+            <a class="btn btn-ghost" href="#report">Обучаем сотрудников →</a>
             <button class="btn btn-ghost" onclick="openContacts('hero')">Связаться с нами</button>
           </div>
           <div class="hero-trust">
@@ -340,6 +392,27 @@
       </div>
     </section>
 
+    <!-- ── Разработка симуляторов под заказ ── -->
+    <section id="custom-sim">
+      <div class="wrap">
+        <div class="shkb" style="border-color:var(--blue)">
+          <span class="eyebrow">Под заказ</span>
+          <h2>Разработаем симулятор под ваш производственный процесс</h2>
+          <p>Готовые тренажёры — не предел. Создаём новые симуляторы под отрасль и задачи заказчика: сценарий на ваших реальных данных (обезличенных), телеметрия решений, профили компетенций и отчёт для руководства.</p>
+          <div class="chain" style="margin-top:1.3rem">
+            <div class="step"><div class="num">1</div><h4>Бриф</h4><p>Процесс, потери, целевые роли — формулируем задачу обучения.</p></div>
+            <div class="step"><div class="num">2</div><h4>Сценарий</h4><p>Игровая модель на данных вашего производства, гейты зачёта.</p></div>
+            <div class="step"><div class="num">3</div><h4>Пилот</h4><p>Прогон с пилотной группой, калибровка сложности и метрик.</p></div>
+            <div class="step"><div class="num">4</div><h4>Внедрение</h4><p>Обучение потоков, отчёты по когортам, сопровождение.</p></div>
+          </div>
+          <div class="partners" style="margin-top:1rem">Опыт заказной разработки: программы для АО «ЦКБМ» и АО «ОДК-КЛИМОВ»; тренажёры используются на 30+ площадках. Награды: 1 место КИвО-2022, «Цифровая индустрия» 2024.</div>
+          <div style="margin-top:1.2rem">
+            <button class="btn btn-primary" onclick="openContacts('разработка симулятора под заказ')">Обсудить разработку симулятора</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ── Удостоверение ── -->
     <section class="cert-strip" id="cert">
       <div class="wrap">
@@ -368,6 +441,8 @@
           <details class="faq-item"><summary>Можно оплатить обучение от организации?<span class="pm">+</span></summary><div class="a">Да. У большинства программ есть пометка «Можно оплатить от организации», а также отдельная цена для компаний при группе от 8 человек.</div></details>
           <details class="faq-item"><summary>Чем онлайн-курс отличается от обычного?<span class="pm">+</span></summary><div class="a">Онлайн-курс проходят самостоятельно, он стартует сразу — без ожидания набора группы. Обычные курсы идут потоками со статусом «Идёт набор» или «Следующий поток позже».</div></details>
           <details class="faq-item"><summary>Что такое президентская программа?<span class="pm">+</span></summary><div class="a">Отдельная программа подготовки управленческих кадров (550 часов, конкурсный отбор, ежегодный набор). Государство компенсирует 2/3 стоимости, стажировка включена. Подробности — во вкладке «Президентская программа».</div></details>
+          <details class="faq-item"><summary>Я студент — что мне подойдёт?<span class="pm">+</span></summary><div class="a">Студентам доступны онлайн-курсы (часть бесплатна) и тренажёры «Бережливый университет» и «Технологическое лидерство» (для студентов СПбПУ, в разработке). Школьникам — раздел <a href="proforientation.html">«Школьникам»</a>. Условия участия для студентов уточняйте по почте центра.</div></details>
+          <details class="faq-item"><summary>Можно заказать симулятор под наш процесс?<span class="pm">+</span></summary><div class="a">Да. Разрабатываем симуляторы под отрасль и данные заказчика — сценарий, телеметрия, отчёты по компетенциям. Как это устроено — в разделе <a href="#custom-sim">«Разработка под заказ»</a>.</div></details>
         </div>
       </div>
     </section>
@@ -386,6 +461,7 @@
           <div class="c-row"><span>Телефон</span><a href="tel:+78127750530">+7 (812) 775-05-30</a></div>
           <div class="c-row"><span>Подразделение</span><span>Центр ДПО ПИШ ЦИ СПбПУ</span></div>
           <div class="c-row"><span>Срок ответа</span><span class="reply">1 рабочий день</span></div>
+          <div class="c-row"><span>Лицензия</span><span>Образовательная лицензия СПбПУ №&nbsp;[плейсхолдер — указать номер]</span></div>
         </div>
       </div>
     </section>

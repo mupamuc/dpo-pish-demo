@@ -148,6 +148,22 @@ function renderCatalog() {
   $('#customBanner').style.display = isPres ? 'none' : '';
   if (isPres) return;
 
+  // текст баннера зависит от типа продукта: на вкладке симуляторов продаём разработку под заказ
+  const cbTitle = $('#customBanner .cb-t');
+  const cbText = $('#customBanner p');
+  const cbBtn = $('#customBanner button');
+  if (cbTitle && cbText && cbBtn) {
+    if (state.tab === 'simulator') {
+      cbTitle.textContent = 'Не нашли готовый тренажёр под вашу отрасль?';
+      cbText.textContent = 'Разрабатываем симуляторы под конкретный производственный процесс — сценарий на ваших данных, телеметрия и отчёт по компетенциям.';
+      cbBtn.setAttribute('onclick', "openContacts('баннер: разработка симулятора под заказ')");
+    } else {
+      cbTitle.textContent = 'Не нашли подходящую программу?';
+      cbText.textContent = 'Разработаем индивидуальный курс или корпоративную программу под задачи вашего предприятия.';
+      cbBtn.setAttribute('onclick', "openContacts('баннер: разработка под заказчика')");
+    }
+  }
+
   // filters relevance: only courses use format/duration groups
   $('#formatDurationGroups').style.display = state.tab === 'course' ? '' : 'none';
   $('#freeOnlyGroup').style.display = state.tab === 'online' ? '' : 'none';

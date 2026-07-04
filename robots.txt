@@ -1,0 +1,23 @@
+# Демо-прототип ДПО ПИШ СПбПУ. Страницы закрыты meta noindex.
+# При переносе на боевой домен: снять noindex в HTML, файл оставить как есть.
+
+User-agent: *
+Allow: /
+
+# AI-краулеры — явно разрешены (для боевого домена)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+Sitemap: https://mupamuc.github.io/dpo-pish-demo/sitemap.xml

@@ -559,3 +559,74 @@ body.view-detail .detail { display:block; }
   .case-cards { grid-template-columns:1fr; }
   .rm-row { grid-template-columns:1fr; gap:.3rem; }
 }
+
+/* ── Partner logo strip (СПбПУ · ПИШ ЦИ · CML-Bench EDU) ── */
+.partner-strip { background:#fff; border-bottom:1px solid var(--line); }
+.partner-strip .wrap { display:flex; align-items:center; justify-content:center; gap:clamp(1.8rem,5vw,4rem);
+  padding-top:.85rem; padding-bottom:.85rem; flex-wrap:wrap; }
+.partner-strip img { width:auto; display:block; opacity:.92; }
+.partner-strip img:hover { opacity:1; }
+.partner-strip .lg-spbstu { height:48px; }
+.partner-strip .lg-pish { height:38px; }
+.partner-strip .lg-cml { height:42px; }
+@media (max-width:640px) {
+  .partner-strip .lg-spbstu { height:36px; }
+  .partner-strip .lg-pish { height:28px; }
+  .partner-strip .lg-cml { height:32px; }
+}
+
+/* ── Профориентация школьников ── */
+.prof-hero { background:
+  radial-gradient(900px 400px at 90% -10%, rgba(69,71,187,.10), transparent 60%),
+  var(--bg); }
+.prof-hero .wrap { padding-top:clamp(2.2rem,4vw,3.6rem); padding-bottom:clamp(1.6rem,3vw,2.6rem); max-width:860px; }
+.prof-hero h1 { font-size:clamp(1.9rem,1.3rem+2.4vw,3rem); margin:1rem 0 .8rem; }
+.prof-hero p { color:var(--ink-2); font-size:1.06rem; }
+
+.fact-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:.9rem; margin:1.3rem 0; }
+.fact-card { background:var(--bg-tint); border:1px solid var(--line); border-radius:12px; padding:.9rem 1.1rem; }
+.fact-card .fl { font-size:.76rem; color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:.05em; }
+.fact-card .fv { font-weight:800; margin-top:.25rem; }
+.fact-card .fv.tbd { color:var(--muted); font-style:italic; font-weight:600; }
+
+.mail-checklist { display:flex; gap:.7rem; align-items:flex-start; background:#eef2ff; border:1px solid #d9defa;
+  border-radius:12px; padding:1rem 1.2rem; margin:1.1rem 0 1.3rem; font-size:.95rem; }
+
+.prof-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; margin-top:1.4rem; }
+.prof-card { background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:1.2rem 1.3rem; }
+.prof-card h4 { margin-bottom:.35rem; }
+.prof-card p { color:var(--ink-2); font-size:.93rem; }
+.prof-card .ph-text { color:var(--muted); font-style:italic; }
+.prof-card a.more { font-weight:700; font-size:.9rem; }
+
+.route-list { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:1.4rem; }
+
+.paid-card { background:var(--surface); border:1px solid var(--line); border-radius:14px; margin-top:1rem; }
+.paid-card summary { list-style:none; cursor:pointer; padding:1.2rem 1.3rem; }
+.paid-card summary::-webkit-details-marker { display:none; }
+.paid-card .badges { display:flex; gap:.5rem; margin-bottom:.55rem; }
+.badge-type { background:var(--blue); color:#fff; font-size:.72rem; font-weight:700; padding:.25rem .7rem; border-radius:100px; }
+.badge-paid { background:#fff4e0; color:#a06a12; font-size:.72rem; font-weight:700; padding:.25rem .7rem; border-radius:100px; }
+.paid-card .meta { color:var(--muted); font-size:.86rem; margin-top:.45rem; }
+.paid-card .expand-hint { color:var(--blue); font-weight:700; font-size:.88rem; margin-top:.6rem; display:inline-block; }
+.paid-card[open] .expand-hint { display:none; }
+.paid-card .paid-body { padding:0 1.3rem 1.3rem; border-top:1px solid var(--line); padding-top:1.1rem; }
+.paid-card .paid-body ul { margin:.5rem 0 .9rem 1.2rem; color:var(--ink-2); font-size:.93rem; }
+
+.shkb { background:linear-gradient(135deg, #f2fbf5, #eef4ff); border:2px dashed var(--green-700);
+  border-radius:18px; padding:clamp(1.4rem,3vw,2.2rem); }
+.shkb .eyebrow { background:rgba(63,204,113,.16); color:var(--green-700); }
+.shkb h2 { margin:.8rem 0 .6rem; }
+.shkb p { color:var(--ink-2); max-width:60ch; }
+.shkb .partners { font-size:.88rem; color:var(--muted); margin-top:.8rem; }
+
+.event-list { margin-top:1.3rem; border:1px solid var(--line); border-radius:14px; background:var(--surface); overflow:hidden; }
+.event-row { display:flex; gap:1.2rem; padding:.95rem 1.3rem; border-bottom:1px solid var(--line); font-size:.95rem; }
+.event-row:last-child { border-bottom:none; }
+.event-row .ed { color:var(--muted); font-weight:700; white-space:nowrap; min-width:90px; }
+
+@media (max-width:960px) { .prof-cards, .route-list { grid-template-columns:1fr 1fr; } }
+@media (max-width:720px) {
+  .fact-cards { grid-template-columns:1fr 1fr; }
+  .prof-cards, .route-list { grid-template-columns:1fr; }
+}
